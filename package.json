@@ -1,0 +1,10 @@
+{
+  "name": "guarita-action",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GitHub Action for authorized security scans through the Guarita public API",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test test/*.test.mjs" }
+}

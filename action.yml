@@ -1,0 +1,34 @@
+name: Guarita Security Scan
+description: Scan a verified deployed app with Guarita and fail the job on critical findings or incomplete coverage.
+author: PCL de Souza Tecnologia
+branding:
+  icon: shield
+  color: green
+inputs:
+  api-key:
+    description: Guarita API key with scans:read and scans:write scopes.
+    required: true
+  target-url:
+    description: Public HTTPS URL of an app verified in your Guarita account.
+    required: true
+  with-ai:
+    description: Include AI analysis using your account quota.
+    default: 'false'
+  fail-on-critical:
+    description: Fail the job when the completed scan reports critical findings.
+    default: 'true'
+  timeout-seconds:
+    description: Maximum wait, including requests and polling, from 60 to 3600 seconds.
+    default: '2100'
+outputs:
+  scan-id:
+    description: Identifier of the scan created by this action.
+  report-url:
+    description: Authenticated Guarita dashboard URL for the scan.
+  critical-count:
+    description: Number of critical findings in a completed, conclusive scan.
+  risk-score:
+    description: Risk score from 0 to 100 in a completed, conclusive scan.
+runs:
+  using: node24
+  main: main.mjs
